@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'CSS/home.css' %}">
+    <link rel="website icon" href="{% static 'images/logo.png' %}">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+</head>
+
+<body>
+
+    <section class="header">
+
+        <div class="nav-logo">
+            <h1 class="logo">PinkPetal</h1>
+        </div>
+
+        <div class="nav-links">
+            <a class="signup" href="{% url 'user_login' %}">SIGN IN</a>
+            <a class="catagories" href="{% url 'categorybag' %}">CATAGORIES</a>
+            <a class=" cart" href="{% url 'cart' %}">SHOPPING CART</a>
+        </div>
+    </section>
+
+
+
+
+    <body>
+
+        <section class="main">
+
+            <div class="slideshow-container">
+                {% for slider_item in slider_items %}
+                <div class="mySlides fade">
+
+                    <img src="{{ slider_item.image.url }}">
+                </div>
+                {% endfor %}
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+        </section>
+
+        <script src="{% static 'JS/home.js' %}"></script>
+        <section class="footer">
+
+            <div class="upper-foot">
+                <div class="footer-links">
+                    <h4>Shop</h4>
+
+                    <a href=#>WOMEN</a>
+                    <a href=#>DEVIVED</a>
+                    <a href=#>MAN</a>
+                    <a href=#>BABY</a>
+                    <a href=#>PINK PETAL HOME</a>
+                    <a href=#>BEAUTY</a>
+                    <a href=#>STUDET DISCOUNT</a>
+                    <a href=#>SPORT</a>
+                    <a href=#>Gift Cards</a>
+
+                </div>
+                <div class="footer-links">
+                    <h4>CORPORATE INFO</h4>
+
+                    <a href=#>CAREEAR AT PINK PETAL</a>
+                    <a href=#>ABOUT PINK PETAL GROUP</a>
+                    <a href=#>SUSTAINIBILITY PINK PETAL GROUP </a>
+                    <a href=#>PRESS</a>
+                    <a href=#>INVESTOR RELATIONS</a>
+                    <a href=#>CORPORATE GOVORNANCE</a>
+
+                </div>
+
+                <div class="footer-links">
+                    <h4>HELP</h4>
+
+
+                    <a href=#>CUSTOMER SERVICE</a>
+                    <a href=#>MY ACCOUNT</a>
+                    <a href=#>FIND A STORE</a>
+                    <a href=#>LEGAL & PRIVACY</a>
+                    <a href=#>GIFT CARD TERMS & CONDITION</a>
+                    <a href=#>CA SUPPLY CHAINS RIGHT</a>
+                    <a href=#>CONTACT</a>
+
+                </div>
+
+                <div class="footer-links">
+                    <div class="become-member">
+                        <h4>BECOME A MEMBER</h4>
+                        <a href=#>JOIN NOW & GET<BR>10% OFF YOUR NEXT <BR> PURCHASE</a>
+                        <a href=#>READ MORE</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="lower-foot">
+                The content of this site is copyright-protected and is the property of pinkpetal Hennes & Mauritz AB.
+                pinkpetal is committed to accessibility.<br>That commitment means pinkpetal embraces WCAG guidelines and
+                supports assistive technologies such as screen readers.<br> If you are using a screen reader, magnifier,
+                or
+                other assistive technologies and are experiencing
+                difficulties using this website, please call our TOLL-FREE support line (855-466-7467) for assistance.
+            </div>
+
+
+            <div class="foot-logo">
+                <h1 class="logo">PinkPetal</h1>
+            </div>
+
+        </section>
+    </body>
+
+</html>

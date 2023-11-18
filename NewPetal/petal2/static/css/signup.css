@@ -1,0 +1,238 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF5F7;
+}
+
+.container {
+    height: 1500px;
+    width: 500px;
+    background-color: white;
+
+}
+
+.header {
+    display: flex;
+}
+
+.logo {
+    font-family: 'Kaushan Script';
+    color: #CD2F42;
+    font-size: 60px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.detail-msg {
+    font-family: 'Inter';
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 36px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.login {
+    font-family: 'Inter';
+    margin-left: 90px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.help {
+    font-family: 'Inter';
+    margin-left: 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.details {
+    width: 450px;
+    padding: 30px;
+}
+
+.details .input-data {
+    height: 40px;
+    width: 100%;
+    position: relative;
+
+}
+
+.details .input-data input {
+
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: white;
+    border-bottom: 2px solid silver;
+
+
+}
+
+.details .input-data label {
+    font-family: 'Inter';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    font-size: 15px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-data input:focus~label,
+.input-data input:valid~label {
+    transform: translateY(-20px);
+}
+
+
+.input-data .underline:before {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #CD2F42;
+    content: "";
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+
+.input-data input:focus~.underline:before,
+.input-data input:valid~.underline:before {
+    transform: scaleX(1);
+}
+
+
+.details .input-data .underline {
+    position: absolute;
+    bottom: 0px;
+    height: 2px;
+    width: 100%;
+}
+
+.sign-up button {
+    font-family: 'Inter';
+    font-size: 15px;
+    padding: 7px;
+    width: 400px;
+    margin-left: 35px;
+    margin-top: 50px;
+    background-color: white;
+    border: 2px solid #00000040;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.conditions {
+    font-family: 'Inter';
+    font-size: 15px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.con2 {
+    font-family: 'Inter';
+    font-size: 15px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+@media(max-width:430px) {
+    .logo {
+        font-family: 'Kaushan Script';
+        color: #CD2F42;
+        font-size: 60px;
+        margin-top: 20px;
+        margin-left: 40px;
+    }
+
+    .detail-msg {
+        font-family: 'Inter';
+        font-size: 18px;
+        font-weight: 200;
+        line-height: 36px;
+        margin-top: 30px;
+        margin-left: 50px;
+    }
+
+    .login {
+        font-family: 'Inter';
+        margin-left: 5px;
+        margin-top: 10px;
+        text-decoration: none;
+        color: black;
+    }
+
+    .help {
+        font-family: 'Inter';
+        margin-left: 20px;
+        margin-top: 10px;
+        text-decoration: none;
+        color: black;
+    }
+
+    .details {
+        width: 450px;
+        padding: 30px;
+    }
+
+    .details .input-data {
+        height: 40px;
+        width: 100%;
+        position: relative;
+
+    }
+
+    .details .input-data input {
+
+        height: 100%;
+        width: 100%;
+        border: none;
+        outline: none;
+        background-color: white;
+        border-bottom: 2px solid silver;
+
+
+    }
+
+    .details .input-data label {
+        font-family: 'Inter';
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        margin-left: 25px;
+        font-size: 15px;
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+    .conditions {
+        font-family: 'Inter';
+        font-size: 15px;
+        margin-top: 30px;
+        margin-left: 40px;
+    }
+
+    .con2 {
+        font-family: 'Inter';
+        font-size: 15px;
+        margin-top: 30px;
+        margin-left: 40px;
+    }
+}

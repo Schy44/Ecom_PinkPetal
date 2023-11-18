@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="website icon" href="{% static 'images/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'CSS/signup.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div class="header">
+            <h1 class="logo">PinkPetal</h1>
+            <a class="login" href="{% url 'user_login' %}">LOG IN</a>
+            <a class=" help" href="#">HELP</a>
+        </div>
+
+        <p class="detail-msg">PERSONAL DETAILS</p>
+
+        <form action="/signup/" method="POST">
+            {% csrf_token %}
+
+            <div class="details">
+                <div class="input-data">
+                    <input id="username" type="text" name="username">
+                    <div class="underline"></div>
+                    <label for="username">USERNAME</label>
+                </div>
+            </div>
+
+            <div class="details">
+                <div class="input-data">
+                    <input type="text" name="first_name" id="first_name">
+                    <div class="underline"></div>
+                    <label for="first_name">FIRST NAME</label>
+                </div>
+
+            </div>
+
+            <div class="details">
+                <div class="input-data">
+                    <input type="text" name="last_name" id="last_name">
+                    <div class="underline"></div>
+                    <label for="last_name">LAST NAME</label>
+                </div>
+
+            </div>
+
+            <div class="details">
+
+                <div class="input-data">
+                    <input type="password1" name="password1" id="password1">
+                    <div class="underline"></div>
+                    <label for="password1">PASSWORD</label>
+                </div>
+
+            </div>
+
+            <div class="details">
+
+                <div class="input-data">
+                    <input type="password2" name="password2" id="password2">
+                    <div class="underline"></div>
+                    <label for="password2">CONFIRM PASSWORD</label>
+                </div>
+
+            </div>
+
+
+            <div class="conditions">
+                <div class="con1"> <input type="checkbox">I want to receive personalised commercial<br>
+                    communications from PinkPetal by email.</div>
+            </div>
+
+            <div class="con2"> <input type="checkbox">I have read and understand the Privacy and Cookies Policy</div>
+
+
+            <div class="sign-up">
+                <button type="submit" class="signup"></a> SIGN UP</button>
+            </div>
+    </div>
+    </form>
+
+
+
+</body>
+
+</html>

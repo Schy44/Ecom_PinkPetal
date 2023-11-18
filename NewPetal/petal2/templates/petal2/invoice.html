@@ -1,0 +1,121 @@
+{% load static %}
+{% load cart_filters %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'CSS/invoice.css' %}">
+    <link rel="website icon" href="{% static 'images/logo.png' %}">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="col-md-12">
+        <div class="row">
+
+            <div class="receipt-main col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+                <div class="row">
+                    <div class="receipt-header">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="receipt-left">
+                                <img class="img-responsive" alt="Company Logo" src="{% static 'images/logo.png' %}"
+                                    style="width: 71px; border-radius: 43px;">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                            <div class="receipt-right">
+                                <h5>Pink Petal</h5>
+                                <p> BANGLADESH <i class="fa fa-location-arrow"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="receipt-header receipt-header-mid">
+                        <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+                            <div class="receipt-right">
+
+                                <h5>{{ customer_name }}</h5>
+                                <p><b>Address :</b> {{ customer_address }}</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <div class="receipt-left">
+                                <h3>INVOICE # {{ invoice_number }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cart_item in cart_items %}
+                            <tr>
+                                <td class="col-md-9">{{ cart_item.product.productName }}</td>
+                                <td class="col-md-3"><i class="fa fa-inr"></i>{{ cart_item.price }}</td>
+                            </tr>
+                            {% endfor %}
+                            <tr>
+                                <td class="text-right">
+                                    <p>
+                                        <strong>Total Amount: </strong>
+                                    </p>
+
+                                <td>
+                                    <p><strong><i class="fa fa-inr"></i> {{ total }}</strong></p>
+
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td class="text-right">
+                                    <h2><strong>Total: </strong></h2>
+                                </td>
+                                <td class="text-left text-danger">
+                                    <h2><strong><i class="fa fa-inr"></i> {{ total }} </strong></h2>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row">
+                    <div class="receipt-header receipt-header-mid receipt-footer">
+                        <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+                            <div class="receipt-right">
+                                <p><b>Date :</b> 15 Aug 2016</p>
+                                <h5 style="color: rgb(140, 140, 140);">Thanks for shopping.!</h5>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <div class="receipt-left">
+                                <h1>Stamp</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+-----------------------------------------------------

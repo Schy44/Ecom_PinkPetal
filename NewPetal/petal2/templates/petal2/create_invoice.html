@@ -1,0 +1,9 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Invoice</button>
+</form>
+In this example, the create_invoice view handles the creation of new invoices. You would create a template
+(create_invoice.html) to display the form for users to input invoice details. When the form is submitted, the view
+processes the data, creates an Invoice object, and saves it to the database. You can then build upon this foundation to
+add features such as invoice listing, payment tracking, and invoice generation.

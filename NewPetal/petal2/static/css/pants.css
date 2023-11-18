@@ -1,0 +1,752 @@
+* 
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+body
+{
+    background-color: #FFF5F7;
+    
+}
+
+.header
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.nav-logo
+{
+    font-family: 'Kaushan Script';
+    color: #CD2F42;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-left: 300px;
+    cursor: pointer;
+}
+
+.nav-links a
+{
+    font-family: 'Inter';
+    font-size: 18px;
+    font-weight: 200;
+    gap:10px;
+    color: black;
+    margin-right: 20px;
+}
+
+ .nav-links img
+{
+    height: 30px;
+    display: none;
+    
+} 
+
+.sidebar
+{
+    position: fixed;
+    top:0;
+    left:0; 
+    height: 100%;
+    width: 200px;
+    padding: 10px 14px;
+    background-color: #FFF5F7;
+    border: 1px solid gray;
+}
+
+.header-text span
+{
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 20px;
+    
+}
+
+.header-text
+{
+    margin-top: 150px;
+}
+
+.sidebar li
+{
+    height:50px;
+    list-style: none;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+
+
+.sidebar li:hover
+{
+    background-color: #CD2F42;
+    cursor: pointer;
+}
+
+.sidebar li a
+{
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 50px;
+}
+
+.sidebar li a:hover
+{
+    color: white;
+}
+
+.bag-box
+{
+    height: 350px;
+    width : 800px;
+    background-color: white;
+    
+    margin-top: 100px;
+    margin-left:35%;
+    display: flex;
+    
+}
+
+.bag-box img
+{
+    height: 200px;
+     margin-top: 70px;
+    margin-left:100px ; 
+}
+
+.box-text
+{
+    font-family: 'Inter';
+    margin-top: 80px;
+    font-size: 15px;
+}
+
+.box-text h1
+{
+    margin-top: 10px;
+}
+
+.box-text p
+{
+    margin-top: 30px;
+}
+
+
+
+.wrapper 
+{
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+   
+    margin-left: 17%;
+    margin-top: 100px;
+  }
+
+  .wrapper i 
+  {
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    position: absolute;
+    text-align: center;
+    line-height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+  }
+
+
+  .wrapper i:active
+  
+  {
+    transform: translateY(-50%) scale(0.85);
+  }
+
+
+  .wrapper i:first-child
+  {
+    left: -22px;
+  }
+
+  .wrapper i:last-child
+  {
+    right: -22px;
+  }
+
+  .wrapper .carousel
+  {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 12px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 5px;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+
+  .carousel::-webkit-scrollbar 
+  {
+    display: none;
+  }
+
+  .carousel.no-transition
+  {
+    scroll-behavior: auto;
+  }
+
+  .carousel.dragging 
+  {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
+
+  .carousel.dragging .card 
+  {
+    cursor: grab;
+    user-select: none;
+  }
+
+  .carousel :where(.card, .img) 
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carousel .card
+   {
+    scroll-snap-align: start;
+    height: 400px;
+    width: 250px;
+    list-style: none;
+    background: #fff;
+    box-shadow: 10px 10px 10px  #e59b9b ;
+    cursor: pointer;
+    padding-bottom: 15px;
+    flex-direction: column;
+    border-radius: 8px;
+    
+  }
+
+
+  .carousel .card .img 
+  {
+    
+    height: 148px;
+    width: 148px;
+    
+  }
+
+
+  .card .img img 
+  {
+    width: 140px;
+    height: 140px;
+   
+    object-fit: cover;
+    border: 4px solid #fff;
+  }
+
+  .details
+  {
+    display: flex;
+  }
+
+  .carousel .card h1 {
+    margin-left: -100px;
+  }
+
+
+  .carousel .card h2
+   {
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 20px;
+    margin: 30px 0 5px;
+  }
+
+  .carousel .card span
+   {
+    font-family: 'Inter';
+    color: #6A6D78;
+    font-size: 15px;
+  }
+
+
+  .footer
+  {
+    height: 30px;
+  }
+
+
+
+
+
+  .nav  .nav-btn  label {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+    border: none;
+    border-top-right-radius: 10px;
+  }
+
+
+  
+
+  .nav  .nav-btn  label  span {
+    display: block;
+    width: 25px;
+    height: 5px;
+    background-color: #CD2F42;
+    border-radius: 5px;
+    display: none;
+  } 
+
+  .nav  .nav-links {
+    position: absolute;
+    display: block;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 280px;
+    height: 80px;
+    margin-top: 10px;
+  }
+
+
+  .nav  .nav-links  a {
+    display: block;
+    padding-left: 10px;
+    color: black;
+    font-weight: 600;
+    font-family: 'Inter';
+  }
+
+
+   .nav  #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  } 
+  .nav  #nav-check:checked ~ .nav-links {
+    height: 250px;
+    overflow-y: hidden;
+  }
+
+  .nav  #nav-check {
+    display: none;
+}
+
+
+
+
+
+  @media  (max-width: 1930px) {
+
+
+    .sidebar li
+{
+   
+    margin-top: 50px;
+}
+
+    .wrapper 
+  {
+     margin-left: 30%;
+   
+  }
+
+  .carousel .card
+  {
+      scroll-snap-align: start;
+      height: 400px;
+      width: 300px;
+  }
+   
+  }
+
+  @media  (max-width: 1400px) {
+
+    .sidebar li
+    {
+       
+        margin-top: 10px;
+    }
+
+    .wrapper 
+  {
+     margin-left: 25%;
+   
+  }
+
+  .carousel .card
+  {
+      scroll-snap-align: start;
+      height: 400px;
+      width: 250px;
+  }
+   
+  }
+
+
+  @media  (max-width: 950px) {
+
+
+    .nav-logo
+    {
+        
+        font-size: 25px;
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+    
+    .nav-links a
+    {
+    
+        margin-top:10px ;
+        font-size: 12px;
+        margin-right: 20px;
+        display: block;
+        
+    }
+
+    .nav  .nav-links {
+        position: absolute;
+        display: block;
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 50px;
+        left: 450px;
+        height: 80px;
+        margin-top: 10px;
+      }
+
+
+    .nav  .nav-btn  label  span 
+    {
+      display: block;
+    }
+
+    .nav  .nav-btn  label:hover,.nav  #nav-check:checked ~ .nav-btn  label {
+      /* background-color: rgba(0, 0, 0, 0.3); */
+      cursor: pointer;
+     
+    }
+
+    .wrapper .carousel 
+    {
+      grid-auto-columns: 100%;
+      grid-auto-columns: calc((100% / 2) - 9px)
+      
+      
+    }
+      .carousel .card
+    {
+        scroll-snap-align: start;
+        height: 400px;
+        width: 300px;
+    }
+
+    .sidebar
+    {
+        display: none;
+    }
+
+    .bag-box
+    {
+        height: 300px;
+        width : 500px;
+        background-color: white;
+        margin-top: 150px;
+        margin-left: 20%;
+        display: flex;
+        
+    }
+    
+    .bag-box img
+    {
+        height: 160px;
+        margin-top: 90px;
+        margin-left:100px ; 
+    }
+    
+    .box-text
+    {
+        font-family: 'Inter';
+        margin-top: 70px;
+        font-size: 15px;
+    }
+    
+    .box-text h1
+    {
+        margin-top: 10px;
+        font-size: 15px;
+    }
+    
+    .box-text p
+    {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+
+
+
+    .carousel .card h1 {
+        margin-left: -100px;
+        font-size: 15px;
+      }
+    
+    
+      .carousel .card h2
+       {
+        font-family: 'Inter';
+        font-weight: 500;
+        font-size: 12px;
+        margin: 30px 0 5px;
+      }
+    
+      .carousel .card span
+       {
+        font-family: 'Inter';
+        color: #6A6D78;
+        font-size: 10px;
+      }
+    
+
+
+  }
+
+
+  @media  (max-width: 750px) {
+
+    .nav  .nav-links {
+        position: absolute;
+        display: block;
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 50px;
+        left: 300px;
+        height: 80px;
+        margin-top: 10px;
+      }
+
+  }
+
+ 
+  @media  (max-width: 600px) {
+
+
+    .nav-logo
+    {
+        
+        font-size: 25px;
+        margin-top: 20px;
+        margin-left: 110px;
+    }
+    
+    .nav-links a
+    {
+    
+        margin-top:10px ;
+        font-size: 12px;
+        margin-right: 20px;
+        margin-left: 20px;
+        display: block;
+        
+    }
+
+    .nav  .nav-links {
+        position: absolute;
+        display: block;
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 50px;
+        left: 220px;
+        height: 80px;
+        margin-top: 10px;
+      }
+
+    .nav  .nav-btn  label  span 
+    {
+      display: block;
+      margin-left: 10px;
+    }
+
+    .nav  .nav-btn  label:hover,.nav  #nav-check:checked ~ .nav-btn  label {
+      /* background-color: rgba(0, 0, 0, 0.3); */
+      cursor: pointer;
+     
+    }
+
+    .wrapper .carousel 
+    {
+      grid-auto-columns: 100%;
+      grid-auto-columns: calc((100% / 2) - 9px)
+        
+    }
+      .carousel .card
+    {
+        scroll-snap-align: start;
+        height: 400px;
+        width: 180px;
+        
+    }
+
+    .sidebar
+    {
+        display: none;
+    }
+
+    .bag-box
+    {
+        height: 300px;
+        width : 400px;
+        background-color: white;
+        margin-top: 150px;
+        margin-left: 10%;
+        display: flex;
+        
+    }
+    
+    .bag-box img
+    {
+        height: 150px;
+        margin-top: 80px;
+        margin-left:20px ; 
+    }
+    
+    .box-text
+    {
+        font-family: 'Inter';
+        margin-top: 60px;
+        font-size: 15px;
+    }
+    
+    .box-text h1
+    {
+        margin-top: 10px;
+        font-size: 15px;
+    }
+    
+    .box-text p
+    {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+
+
+
+    .carousel .card h1 {
+        margin-left: -100px;
+        font-size: 15px;
+      }
+    
+    
+      .carousel .card h2
+       {
+        font-family: 'Inter';
+        font-weight: 500;
+        font-size: 12px;
+        margin: 30px 0 5px;
+      }
+    
+      .carousel .card span
+       {
+        font-family: 'Inter';
+        color: #6A6D78;
+        font-size: 10px;
+      }
+
+      
+  }
+
+
+
+   @media  (max-width: 430px) {
+
+    .nav-logo
+    {
+        
+        font-size: 25px;
+        margin-top: 20px;
+        margin-left: 70px;
+    }
+    
+    .nav-links a
+    {
+    
+        margin-top:10px ;
+        font-size: 12px;
+        margin-right: 20px;
+        display: block;
+        
+    }
+
+
+    .nav  .nav-links {
+        position: absolute;
+        display: block;
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 50px;
+        left: 230px;
+        height: 80px;
+        margin-top: 10px;
+      }
+    
+
+    .bag-box
+    {
+        height: 300px;
+        width : 360px;
+        background-color: white;
+        margin-top: 150px;
+        margin-left: 10%;
+        display: flex; 
+    }
+
+    .bag-box img
+    {
+        height: 100px;
+        margin-top: 80px;
+        margin-left:20px ; 
+    }
+
+    
+
+   .wrapper i
+    {
+        display: none;
+   }
+   }
+
+
+@media  (max-width: 375px) {
+   .carousel .card
+   {
+       scroll-snap-align: start;
+       height: 400px;
+       width: 170px;
+       
+   }
+}

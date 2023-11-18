@@ -1,0 +1,440 @@
+* 
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+body
+{
+    background-color: #FFF5F7;   
+    
+}
+
+
+
+.header
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo
+{
+    font-family: 'Kaushan Script';
+    color: #CD2F42;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.nav-links a
+{
+    font-family: 'Inter';
+    font-size: 18px;
+    font-weight: 200;
+    gap:10px;
+    color: black;
+    margin-right: 20px;
+}
+
+.main
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.addto-cart
+{
+    margin-left: -10px;
+}
+
+.addto-cart h1
+{
+    font-family: 'Inter';
+    font-size: 30px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.date
+{
+    font-family: 'Inter';
+    margin-top: 20px;
+    margin-left: 50px;
+    color: gray;
+}
+
+.addto-cart h3
+{
+    font-family: 'Inter';
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.addto-cart span
+{
+    color: gray;
+}
+
+.addto-cart p
+{
+    font-family: 'Inter';
+    font-size: 15px;
+    margin-top: 20px;
+    margin-left: 40px;
+    display: inline-block;
+    padding: 10px;
+    border-bottom: 1px solid gray;
+}
+.view
+{
+    color: gray;
+}
+
+.invoice
+{
+    height: 200px;
+    width:400px;
+    background-color: #FFF5F7;
+    border: 7px solid #CD2F42;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.invoice span
+{
+    color: gray;
+    font-family: 'Inter';
+    margin-top: 50px;
+    margin-left: 40px;
+}
+
+.invoice h3
+{
+    font-family: 'Inter';
+    margin-top: 20px;
+    
+}
+
+.payment
+
+{
+
+    height: 500px;
+    width:400px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-top: 50px;
+    /* margin-left: 100px; */
+
+}
+
+.payment h2
+{
+    color: gray;
+    font-family: 'Inter';
+    margin-top: 50px;
+    margin-left: 40px;
+
+}
+
+.payment h3
+{
+    color: gray;
+    font-family: 'Inter';
+    margin-top: 30px;
+    margin-left: 40px;
+
+}
+
+.method
+{
+    display: flex;
+}
+
+
+.card
+
+{
+
+    height: 60px;
+    width:100px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 20px;
+    cursor: pointer;
+
+}
+
+.card i
+{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.bank
+
+{
+
+    height: 60px;
+    width:100px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 20px;
+    cursor: pointer;
+
+}
+
+.bank i
+{
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.bkash
+
+{
+
+    height: 60px;
+    width:100px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 20px;
+    cursor: pointer;
+
+}
+
+.bkash i
+{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+
+.card-info
+
+{
+
+    height: 40px;
+    width:350px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+
+}
+
+
+.card-info 
+{
+    color: gray;
+    font-family: 'Inter';
+    margin-left: 20px;
+    gap:10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-info img
+{
+    height: 20px;
+}
+
+.cardinfo2
+{
+   
+    display: flex;
+    margin-left: 10px;
+    margin-top: 10px;
+    
+}
+
+.box1
+{
+    height: 30px;
+    width:170px;
+    border:1px solid gray ;
+    border-radius: 10px;
+    color: gray;
+    font-family: 'Inter';
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.pay
+{
+    height: 30px;
+    width: 300px;
+    background-color: #CD2F42;
+    color: white;
+    font-family: 'Inter';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-left: 40px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+
+@media (max-width:1930px)
+{
+.payment
+{
+     margin-left: 100px; 
+}
+}
+
+
+
+
+@media (max-width:850px)
+
+{
+
+
+ .nav-logo
+ {
+    font-size: 30px;
+ }
+
+ .nav-links a
+{
+
+    margin-top:10px ;
+    font-size: 15px;
+    margin-right: 20px;
+    display: block;
+    
+}
+
+
+.main
+{
+   flex-direction: column;
+}
+
+
+ .invoice
+{
+        height: 200px;
+        width:400px;
+        margin-left: 20px;      
+}
+
+.invoice h3
+{
+    font-family: 'Inter';
+    margin-top: 20px;
+    margin-left: 5px;
+    
+    
+}
+
+ .payment
+
+{
+
+    margin-left: 20px;
+}
+}
+
+@media (max-width:430px)
+
+{
+    .invoice
+    {
+            height: 200px;
+            width:370px;
+            margin-left: 15px;      
+    }
+
+    .invoice h3
+    {
+        font-size: 15px;
+    }
+    
+     .payment
+    
+    {
+    
+        margin-left: 4px;
+    }
+    
+}
+
+@media (max-width:390px)
+
+{
+
+    .nav-logo
+ {
+    font-size: 25px;
+ }
+
+ .nav-links a
+{
+
+    margin-top:10px ;
+    font-size: 12px;
+    margin-right: 20px;
+    display: block;
+    
+}
+
+.invoice
+    {
+            height: 200px;
+            width:350px;
+            margin-left: 5px;      
+    }
+    .payment
+    
+    {
+    
+        margin-left: -4px;
+    }
+
+    .method
+    {
+        margin-left: 12px
+    }
+
+    .card-info
+    {
+        margin-left: 25px;
+    }
+
+    .cardinfo2
+
+    {
+        margin-left: 15px;
+    }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="{% static 'CSS/details.css' %}">
+    <link rel="website icon" href="{% static 'images/logo.png' %}">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+
+<body>
+
+    <section class="header">
+
+        <div class="nav-logo">
+            <h1 class="logo">PinkPetal</h1>
+        </div>
+
+        <div class="nav-links">
+            <a class="signup" href="login.html">SIGN IN</a>
+            <a class="catagories" href="catagorybag.html">CATAGORIES</a>
+            <a class="cart" href="cart.html">SHOPPING CART</a>
+        </div>
+
+    </section>
+
+
+    <div class="container">
+
+
+        <div class="details-preview">
+            <h1 class="details-heading">See Details<i class="fa-solid fa-chevron-right"></i>
+                <h2>Brand: {{ product.Brand }}</h2>
+                <p>Material: {{ product.Material }}</p>
+                <p>Color: {{ product.Color }}</p>
+                <p>Item Weight: {{ product.Item_Weight }} Pounds</p>
+        </div>
+
+
+
+        </h1>
+
+        <div class="details">
+
+            <div id="card">
+
+                <div id="upper">
+
+                    <img id="product" src="{{ product.image.url }}">
+
+                    <h3>{{ product.productName }}</h3>
+
+                    <p id="info">{{ product.description }}</p>
+                </div>
+                <div id="priceBox">
+                    <span class="price">${{ product.price }}</span>
+
+                    <span class="rating fas fa-star"> 4.5</span>
+                </div>
+                <button id="cartBtn"><a href="{% url 'cart' product.id %}">Add to Cart</a></button>
+
+
+                <button id="cartBtn"><a href="{% url 'cart' product.id %}">BUY NOW</a></button>
+
+                <button id="like" class="fas fa-heart"></button>
+                <button id="share" class="fas fa-share"></button>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>

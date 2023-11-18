@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'CSS/login.css' %}">
+    <link rel="website icon" href="{% static 'images/logo.png' %}">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1 class="logo">PinkPetal</h1>
+            <a class="help" href="#">HELP</a>
+        </div>
+
+        <p class="login-msg">LOG IN TO YOUR ACCOUNT</p>
+
+        <form action="/user_login/" method="POST">
+            {% csrf_token %}
+
+            <div class="email">
+                <div class="input-data">
+                    <input id="username" type="text" name="username">
+                    <div class="underline"></div>
+                    <label for="username">username:</label>
+                </div>
+            </div>
+
+
+            <div class="pass">
+
+                <div class="input-data">
+                    <input type="password" name="password" id="password">
+                    <div class="underline"></div>
+                    <img id="eyeicon" src="{% static 'images/eye-close.png' %}">
+                    <label for="password"></label>
+                </div>
+
+            </div>
+
+
+            <div class="login">
+                <button type="submit" class="log">LOG IN</button>
+            </div>
+
+        </form>
+        <div class="remember">
+            <div class="rem"> <input type="checkbox">Remember Password</div>
+        </div>
+
+        <p class="forget">Have you forgotten your password?<a href="#">RESET</a></p>
+
+
+        <p class="need-account">NEED AN ACCOUNT?<a href="{% url 'signup' %}">SIGN UP</a></p>
+
+
+    </div>
+
+
+    <script src="{% static 'JS/login.js' %}"></script>
+</body>
+
+
+</html>

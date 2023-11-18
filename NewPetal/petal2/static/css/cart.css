@@ -1,0 +1,156 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+body {
+    font-family: 'Inter';
+    background-color: #FFF5F7;
+}
+
+#cartBtn {
+    height: 30px;
+    width: 300px;
+    background-color: #CD2F42;
+    color: white;
+    font-family: 'Inter';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#cartBtn a {
+
+    font-family: 'Inter';
+    color: white;
+    text-decoration: none;
+}
+
+#cartBtn:hover {
+    background: #CD2F42;
+    font-size: 22px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    font-family: 'Kaushan Script';
+    color: #CD2F42;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.nav-links a {
+    font-family: 'Inter';
+    font-size: 18px;
+    font-weight: 200;
+    gap: 10px;
+    color: black;
+    margin-right: 20px;
+}
+
+.nothing {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    display: none;
+}
+
+.cart-page {
+    margin: 30px auto;
+
+}
+
+.cart-page img {
+    height: 100px;
+    margin-right: 10px;
+    border: 2px solid gray;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+th {
+    text-align: left;
+    padding: 5px;
+    color: #fff;
+    background-color: #CD2F42;
+}
+
+td {
+    padding: 10px 5px;
+}
+
+td input {
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+td a {
+    color: #CD2F42;
+    text-decoration: none;
+}
+
+.total-price {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.total-price table {
+    border-top: 3px solid #CD2F42;
+    width: 100%;
+    max-width: 370px;
+}
+
+td:last-child {
+    text-align: right;
+
+}
+
+th:last-child {
+    text-align: right;
+
+}
+
+@media(max-width:800px) {
+    .nav-logo {
+
+        font-size: 25px;
+        margin-top: 20px;
+        margin-left: 50px;
+        cursor: pointer;
+    }
+
+    .nav-links a {
+
+        margin-top: 10px;
+        font-size: 12px;
+        margin-right: 20px;
+        display: block;
+
+    }
+}

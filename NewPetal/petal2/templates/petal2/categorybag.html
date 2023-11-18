@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catagories</title>
+    <link rel="stylesheet" href="{% static 'CSS/catagorybag.css' %}">
+    <link rel="website icon" href="{% static 'images/logo.png' %}">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+</head>
+
+
+<body>
+    <section class="header">
+
+        <div class="nav-logo">
+            <h1 class="logo">PinkPetal</h1>
+        </div>
+
+
+
+        <div class="nav">
+            <input type="checkbox" id="nav-check">
+
+            <div class="nav-btn">
+                <label for="nav-check">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+            <div class="nav-links">
+                <ul> <a class="catagories" href="{% url 'categorybag' %}">CATEGORIES</a>
+                    <ul><a href="{% url 'categorybag_by_category' 'BEGS' %}">BEGS</a></ul>
+                    <ul><a href="{% url 'categorybag_by_category' 'PANTS' %}">PANTS</a></ul>
+                    <ul><a href="{% url 'categorybag_by_category' 'ACCESSORIES' %}">ACCESSORIES</a></ul>
+                    <ul><a href="{% url 'categorybag_by_category' 'TOPS' %}">TOPS</a></ul>
+                    <ul><a href="{% url 'categorybag_by_category' 'SHOES' %}">SHOES</a></ul>
+            </div>
+            <div class="nav-links">
+                <a class="signup" href="{% url 'user_login' %}">SIGN IN</a>
+                <a class="catagories" href="{% url 'categorybag' %}">CATEGORIES</a>
+                <a class="cart" href="{% url 'cart' %}">SHOPPING CART</a>
+            </div>
+        </div>
+
+
+    </section>
+
+    <div class="sidebar">
+
+        <div class="header-text">
+            <span>CATAGORIES</span>
+        </div>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                {% for Category in Categories %}
+                <li>
+                    <a href="{% url 'categorybag_by_category' Category.name %}">{{ Category.name }}</a>
+                </li>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+
+    <section class="main">
+        {% for SpecialProduct in SpecialProducts %}
+        <div class="bag-box">
+
+
+            <img src="{{ SpecialProduct.image.url }}">
+
+            <div class="box-text">
+
+                <h1>{{ SpecialProduct.productName }}</h1>
+
+                <h1>{{ SpecialProduct.price }}$</h1>
+
+                <p>{{ SpecialProduct.description }}</p>
+
+            </div>
+
+        </div>
+        {% endfor %}
+    </section>
+
+
+
+    <section class="slider">
+        <div class="wrapper">
+            <i id="left" class="fa-solid fa-angle-left"></i>
+            <ul class="carousel">
+                {% for product in products %}
+                <li class="card">
+                    <h1>{{ product.productName }}</h1>
+                    <h1>{{ product.price }}$</h1>
+                    <div class="img"><img src="{{ product.image.url }}" alt="img" draggable="false"></div>
+                    <h2>{{ product.Brand }}</h2>
+                    <span class="details">See Details
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="arroww" src="{% static 'images/circledright.png' %}" height="25px">
+                        </a>
+                    </span>
+                </li>
+                {% endfor %}
+            </ul>
+            <i id="right" class="fa-solid fa-angle-right"></i>
+        </div>
+    </section>
+    <br><br>
+    <div class="explore">
+        <h2> Explore Our Options </h2>
+    </div>
+    <br> <br>
+
+    <div class="product-container">
+        {% csrf_token %}
+        {% for product in products %}
+        <div class="product">
+            <div class="product{{ product.id }}">
+                <img class="grid-image" src="{{ product.image.url }}">
+                <div class="item-description">{{ product.description }}</div>
+                <br> <br>
+            </div>
+            <span class="details">See Details
+                <a href="{% url 'product_detail' product.id %}">
+                    <img class="arrow" src="{% static 'images/circledright.png' %}" height="25px">
+                </a>
+            </span>
+
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <div class="footer">
+
+    </div>
+
+
+    <script src="{% static 'JS/catagorybag.js' %}"></script>
+</body>
+
+
+</html>

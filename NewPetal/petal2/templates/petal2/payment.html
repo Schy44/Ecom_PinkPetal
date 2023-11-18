@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="{% static 'CSS/payment.css' %}">
+    <link rel="icon" href="{% static 'images/logo.png' %}">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+</head>
+
+<body>
+
+    <section class="header">
+        <div class="nav-logo">
+            <h1 class="logo">PinkPetal</h1>
+        </div>
+
+        <div class="nav-links">
+            <a class="signup" href="{% url 'user_login' %}">SIGN IN</a>
+            <a class="catagories" href="{% url 'categorybag' %}">CATEGORIES</a>
+            <a class="cart" href="{% url 'cart' %}">SHOPPING CART</a>
+        </div>
+    </section>
+
+    <div class="main">
+        <div class="container1">
+
+            <section class="addto-cart">
+                <h3><span>FROM:</span> Pink Petal</h3>
+                <h3><span>TO:</span> {{ user.username }}</h3><br><br>
+                <ol>
+                    PRODUCT list-
+                    {% for cart_item in cart_items %}
+                    <li class="add">
+                        - {{ cart_item.product.productName }}, PRICE - {{ cart_item.price }}
+                    </li>
+                    {% endfor %}
+                </ol>
+
+
+                <h3 class="dollar"><span>Total Amount:</span>
+                    <td>$ {{ totalvat }}</td>
+                    <td><span id="total"></span></td>
+                </h3>
+                <p>Thanks for purchasing from us. Hope you had a nice experience!</p>
+
+                , <!-- <a href="{% url 'invoice' %}" class="button view">
+                    <h3>View invoice details <i class="fa-solid fa-chevron-right"></i></h3>
+                </a> -->
+
+            </section>
+
+
+        </div>
+
+        <div class="container2">
+            <section class="payment">
+                <h2>Select a payment method</h2>
+
+                <div class="method">
+                    <div class="card">
+                        <i class="fa-solid fa-wallet"></i>
+                        Card
+                    </div>
+
+                    <div class="bank">
+                        <i class="fa-solid fa-building-columns"></i>
+                        Bank Transfer
+                    </div>
+
+                    <div class="bkash">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                        Bkash
+                    </div>
+                </div>
+
+                <h3>Card Information</h3>
+
+                <div class="card-info">
+                    <div>{{ card_number }}</div>
+                    <div>{{ card_number }}</div>
+                    <img src="{% static 'images/visa.png' %}">
+                    <img src="{% static 'images/master.png' %}">
+                    <img src="{% static 'images/paytm.png' %}">
+                </div>
+
+                <div class="cardinfo2">
+                    <div class="box1">MM/YY</div>
+                    <div class="box1">CVC</div>
+                </div>
+
+                <div class="pay">
+                    Pay ${{ totalvat }}
+                </div>
+            </section>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="{% static 'JS/cart.js' %}"></script>

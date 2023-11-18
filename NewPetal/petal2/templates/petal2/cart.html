@@ -1,0 +1,89 @@
+{% load static %}
+{% load cart_filters %}
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/cart.css' %}">
+    <link rel="website icon" href="{% static 'images/logo.png' %}">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+
+<body>
+
+    <section class="header">
+        <div class="nav-logo">
+            <h1 class="logo">PinkPetal</h1>
+        </div>
+        <div class="nav-links">
+            <a class="signup" href="{% url 'user_login' %}">SIGN IN</a>
+            <a class="catagories" href="{% url 'categorybag' %}">CATEGORIES</a>
+            <a class="cart" href="{% url 'cart' %}">SHOPPING CART</a>
+        </div>
+    </section>
+
+    {% if cart_items %}
+    <div class="cart-page">
+        <table>
+            <tr>
+                <th>PRODUCT</th>
+                <th>QUANTITY</th>
+                <th>PRICE</th>
+                <th>SUBTOTAL</th>
+                <th>REMOVE</th>
+            </tr>
+            {% for cart_item in cart_items %}
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="{{ cart_item.product.image.url }}">
+                        <div>
+                            <p>{{ cart_item.product.productName }}</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <input type="number" value="{{ cart_item.quantity }}" data-cart-item-id="{{ cart_item.id }}"
+                        data-product-price="{{ cart_item.price }}">
+                </td>
+                <td>${{ cart_item.price }}</td>
+                <td class="subtotal">${{ cart_item.subtotal }}</td>
+                <td><a href="{% url 'remove_from_cart' cart_item.id %}">Remove</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>SUBTOTAL</td>
+                    <td><span id="subtotal"></span></td>
+                </tr>
+                <tr>
+                    <td>Vat</td>
+                    <td>$6</td>
+                </tr>
+                <tr>
+                    <td>TOTAL</td>
+                    <td><span id="total"></span></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <button id="cartBtn"><a href="{% url 'payment' %}">make payment </a></>
+        {% else %}
+        <h1 class="nothing">NOTHING IN THE CART!</h1>
+        {% endif%}
+
+</body>
+
+</html>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'JS/cart.js' %}"></script>

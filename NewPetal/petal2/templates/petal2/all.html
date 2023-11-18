@@ -1,0 +1,843 @@
+<body>
+    <section class="header">
+
+        <div class="nav-logo">
+            <h1 class="logo">PinkPetal</h1>
+        </div>
+
+
+
+        <div class="nav">
+            <input type="checkbox" id="nav-check">
+
+            <div class="nav-btn">
+                <label for="nav-check">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+            <div class="nav-links">
+                <ul> <a class="catagories" href="{% url 'categorybag' %}">CATEGORIES</a>
+                    <ul><a href="{% url 'categorybag_by_category' 'BEGS' %}">BEGS</a></ul>
+                    <ul><a href="{% url 'categorybag_by_category' 'PANTS' %}">PANTS</a></ul>
+                    <ul><a href="{% url 'categorybag_by_category' 'ACCESSORIES' %}">ACCESSORIES</a></ul>
+                    <ul><a href="{% url 'categorybag_by_category' 'TOPS' %}">TOPS</a></ul>
+                    <ul><a href="{% url 'categorybag_by_category' 'SHOES' %}">SHOES</a></ul>
+            </div>
+            <div class="nav-links">
+                <a class="signup" href="{% url 'user_login' %}">SIGN IN</a>
+                <a class="catagories" href="{% url 'categorybag' %}">CATEGORIES</a>
+                <a class="cart" href="{% url 'cart' %}">SHOPPING CART</a>
+            </div>
+        </div>
+
+
+        <div class="nav-links">
+            <img src="{% static 'images/user.png' %}"><a class="signup" href="{% url 'user_login' %}">SIGN IN</a>
+            <a class="catagories" href="{% url 'categorybag' %}">CATAGORIES</a>
+            <a class="cart" href="{% url 'cart' %}">SHOPPING CART</a>
+        </div>
+
+    </section>
+
+    <div class="sidebar">
+
+        <div class="header-text">
+            <span>CATAGORIES</span>
+        </div>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <ul class="menu-links">
+                    {% for Category in Categories %}
+                    <li>
+                        <a href="{% url 'categorybag_by_category' Category.name %}">{{ Category.name }}</a>
+                    </li>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+
+    <section class="main">
+
+        {% for SpecialProduct in SpecialProducts %}
+        <div class="bag-box">
+
+            <img src="{{ SpecialProduct.image.url }}">
+
+            <div class="box-text">
+
+                <h1>{{ SpecialProduct.productName }}</h1>
+
+                <h1>{{ SpecialProduct.price }}$</h1>
+
+                <p>{{ SpecialProduct.description }}</p>
+
+            </div>
+
+        </div>
+        {% endfor %}
+    </section>
+
+
+
+    <section class="slider">
+        {% block category %}
+        {% for product in products %}
+        <div class="wrapper">
+
+            <i id="left" class="fa-solid fa-angle-left"></i>
+
+            <ul class="carousel">
+
+
+                <li class="card">
+                    <h1>{{ product.productName }}</h1>
+                    <h1>{{ product.price }}$</h1>
+                    <div class="img"><img src="{{ product.image.url }}" alt="img" draggable="false"></div>
+                    <h2>{{ product.Brand }}</h2>
+                    <span class="details">See Details
+
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="arrow" src="{% static 'images/circledright.png' %}" height="25px">
+                        </a>
+
+
+                    </span>
+
+                    <a href="">
+                        <img src="{% static 'images/joyent.png' %}" height="50px">
+                    </a>
+
+                </li>
+
+
+
+                <i id="right" class="fa-solid fa-angle-right"></i>
+
+        </div>
+
+        {% endfor %}
+
+    </section>
+
+    <div class="footer">
+
+    </div>
+
+
+    <script src="{% static 'JS/catagorybag.js' %}" defer></script>
+    {% endblock %}
+</body>
+
+
+
+<div class="sidebar">
+    <div class="header-text">
+        <span>CATEGORIES</span>
+    </div>
+
+    <div class="menu-bar">
+        <div class="menu">
+            <ul class="menu-links">
+                {% for Category in Categories %}
+                <li>
+                    <a href="{% url 'categorybag_by_category' Category.name %}">{{ Category.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<section class="main">
+
+    {% for SpecialProduct in SpecialProducts %}
+    <div class="bag-box">
+        <img src="{{ SpecialProduct.image.url }}">
+
+        <div class="box-text">
+
+            <h1>
+                <p class="card-text">{{ SpecialProduct.productName }}</p>
+            </h1>
+
+            <h1>
+                <p class="card-text">Price - {{ SpecialProduct.price }}</p>
+            </h1>
+
+            <p class="card-text">{{ SpecialProduct.description }}</p>
+
+        </div>
+
+    </div>
+    {% endfor %}
+</section>
+
+<!----   <section class="slider">
+    {% for product in products %}
+    <div class="wrapper">
+
+        <i id="left" class="fa-solid fa-angle-left"></i>
+
+        <ul class="carousel">
+
+
+            <li class="card">
+                <h1>{{ product.productName }}</h1>
+                <h1>{{ product.price }}</h1>
+                <div class="img"> <img src="{{ product.image.url }}">alt="img" draggable="false"></div>
+                <h2>{{ product.description }}</h2>
+                <span class="details">See Details
+
+                    <a href="details.html">
+                        <img class="arrow" src="{% static 'images/circledright.png' %}" height="25px">
+                    </a>
+                </span>
+        </ul>
+        <i id="right" class="fa-solid fa-angle-right"></i>
+    </div>
+    {% endfor %}
+</section>-->
+
+<section class="slider">
+    {% for product in products %}
+    <div class="wrapper">
+        <i id="left" class="fa-solid fa-angle-left"></i>
+        <ul class="carousel">
+            <li class="card">
+                <h1>{{ product.productName }}</h1>
+                <h1>{{ product.color }}</h1>
+                <div class="img"><img src="{{ product.image.url }}" alt="img" draggable="false"></div>
+                <h2>{{ product.description }}</h2>
+                <a href="{% url 'product_detail' product.id %}">See Details</a>
+
+                <a href="details.html">
+                    <img class="arrow" src="{% static 'images/circledright.png' %}" height="25px">
+                </a>
+                </span>
+
+                <a href="">
+                    <img src="{% static 'images/joyent.png' %}" height="50px">
+                </a>
+
+            </li>
+        </ul>
+    </div>
+    {% endfor %}
+</section>
+
+-------------------------
+{% for Category in Categories %}
+<li class="nav-link">
+    <span class="nav-text"><a href="{% url 'categorybag' %}?Category={{ Category.name }}">
+            {{ Category.name }}
+        </a></span>
+    --------------------------------------------------
+<li class="nav-link">
+    <span class="nav-text"><a href="{% url 'categorybag' %}?Category={{ Category.name }}">
+            {{ Category.name }}
+        </a></span>
+    -------------------------------------------
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign up</title>
+        <link rel="website icon" href="{% static 'images/logo.png' %}">
+        <link rel="stylesheet" href="{% static 'CSS/signup.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    </head>
+
+    <body>
+
+
+        <div class="container">
+
+            <div class="header">
+                <h1 class="logo">PinkPetal</h1>
+                <a class="login" href="{% url 'login' %}">LOG IN</a>
+                <a class="help" href="#">HELP</a>
+            </div>
+
+            <p class="detail-msg">PERSONAL DETAILS</p>
+
+            <form action="" method="post" novalidate>
+                {% csrf_token %}
+                {% for fm in form %}
+                <div class="details">
+
+                    <div class="input-data">
+                        <input type="text">
+                        <div class="underline"></div>
+                        <label>E-MAIL</label>
+                    </div>
+                </div>
+
+
+                <div class="details">
+
+                    <div class="input-data">
+                        <input type="password">
+                        <div class="underline"></div>
+                        <label>PASSWORD</label>
+                    </div>
+
+                </div>
+
+
+                <div class="details">
+
+                    <div class="input-data">
+                        <input type="text">
+                        <div class="underline"></div>
+                        <label>FIRST NAME</label>
+                    </div>
+
+                </div>
+
+                <div class="details">
+
+                    <div class="input-data">
+                        <input type="text">
+                        <div class="underline"></div>
+                        <label>LAST NAME</label>
+                    </div>
+
+                </div>
+                {% endfor %}
+
+                <!----  <div class="details">
+
+                <div class="input-data">
+                    <input type="text">
+                    <div class="underline"></div>
+                    <label>COUNTRY</label>
+                </div>
+
+            </div>
+
+            <div class="details">
+
+                <div class="input-data">
+                    <input type="text">
+                    <div class="underline"></div>
+                    <label>CITY/TOWN</label>
+                </div>
+
+            </div>
+
+
+            <div class="details">
+
+                <div class="input-data">
+                    <input type="text">
+                    <div class="underline"></div>
+                    <label>ROAD NO/STATE</label>
+                </div>
+
+            </div>
+
+
+            <div class="details">
+
+                <div class="input-data">
+                    <input type="text">
+                    <div class="underline"></div>
+                    <label>ZIP CODE</label>
+                </div>
+
+            </div>
+
+
+            <div class="details">
+
+                <div class="input-data">
+                    <input type="text">
+                    <div class="underline"></div>
+                    <label>PHONE NO</label>
+                </div>
+
+            </div>
+
+        -->
+
+                <div class="conditions">
+                    <div class="con1"> <input type="checkbox">I want to receive personalised commercial<br>
+                        communications from PinkPetal by email.</div>
+                </div>
+
+                <div class="con2"> <input type="checkbox">I have read and understand the Privacy and Cookies Policy
+                </div>
+
+
+                <div class="sign-up">
+                    <button class="signup"></a> SIGN UP</button>
+
+                </div>
+            </form>
+        </div>
+    </body>
+
+    </html>
+
+    ---------------------------------------------------
+
+    {% load static %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="{% static 'CSS/login.css' %}">
+        <link rel="website icon" href="{% static 'images/logo.png' %}">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <div class="header">
+                <h1 class="logo">PinkPetal</h1>
+                <a class="help" href="#">HELP</a>
+            </div>
+
+            <p class="login-msg">LOG IN TO YOUR ACCOUNT</p>
+
+            <form action="" method="post" novalidate>
+                {% csrf_token %}
+                {{form.as_p}}
+                <div class="email">
+
+                    <div class="input-data">
+                        <input type="text">
+                        <div class="underline"></div>
+                        <label>E-MAIL</label>
+                    </div>
+                </div>
+
+                <div class="login">
+                    <input type="submit" value="login">
+                </div>
+
+                <div class="remember">
+                    <div class="rem"> <input type="checkbox">Remember Password</div>
+                </div>
+
+                <p class="forget">Have you forgotten your password?<a href="#">RESET</a></p>
+
+
+                <p class="need-account">NEED AN ACCOUNT?<a href="{% url 'signup' %}">SIGN UP</a></p>
+
+
+        </div>
+
+        <script src="{% static 'JS/login.js' %}"></script>
+
+    </body>
+
+    </html>
+
+    <script src="{% static 'JS/login.js' %}"></script>
+    new
+
+    {% load static %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="{% static 'CSS/login.css' %}">
+        <link rel="website icon" href="{% static 'images/logo.png' %}">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <div class="header">
+                <h1 class="logo">PinkPetal</h1>
+                <a class="help" href="#">HELP</a>
+            </div>
+
+            <p class="login-msg">LOG IN TO YOUR ACCOUNT</p>
+
+
+
+            <form action="" method="POST" novalidate>
+                {% csrf_token %}
+                {% for fm in form %}
+
+                <div class="email">
+                    <div class="input-data">
+                        <input type="text" email="{{fm.email}} ">
+                        <div class="underline"></div>
+                        <label>{{fm.label}}</label>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+                <input type="submit" value="Login">
+            </form>
+            <div class="remember">
+                <div class="rem"> <input type="checkbox">Remember Password</div>
+            </div>
+
+            <p class="forget">Have you forgotten your password?<a href="#">RESET</a></p>
+
+
+            <p class="need-account">NEED AN ACCOUNT?<a href="{% url 'signup' %}">SIGN UP</a></p>
+
+
+        </div>
+
+
+
+    </body>
+
+    </html>
+    ----------------------------------------------
+    <section class="header">
+
+        <div class="nav-logo">
+            <h1 class="logo">PinkPetal</h1>
+        </div>
+
+
+
+        <div class="nav">
+            <input type="checkbox" id="nav-check">
+
+            <div class="nav-btn">
+                <label for="nav-check">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+            <div class="nav-links">
+                <ul><a href="{% url 'bags' %}">BAGS</a></ul>
+                <ul><a href="{% url 'tops' %}">TOPS</a></ul>
+                <ul><a href="{% url 'pants' %}">PANTS</a></ul>
+                <ul><a href="{% url 'accessories' %}">ACCESSORIES</a></ul>
+                <ul><a href="{% url 'shoes' %}">SHOES</a></ul>
+            </div>
+
+
+            <div class="nav-links">
+                <img src="{% static 'images/user.png' %}"><a class="signup" href="login.html">SIGN IN</a>
+                <a class="catagories" href="#">CATAGORIES</a>
+                <a class="cart" href="cart.html">SHOPPING CART</a>
+            </div>
+
+    </section>
+
+    <div class="sidebar">
+
+        <div class="header-text">
+            <span>CATAGORIES</span>
+        </div>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+
+                        <span class="nav-text"><a href="catagorybag.html">BAGS</a></span>
+                    </li>
+                </ul>
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+
+                        <span class="nav-text"><a href="tops.html">TOPS</a></span>
+                    </li>
+                </ul>
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+
+                        <span class="nav-text"><a href="pants.html">PANTS</a></span>
+                    </li>
+                </ul>
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+
+                        <span class="nav-text"><a href="accs.html">ACSESSORIES</a></span>
+                    </li>
+                </ul>
+
+
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+
+                        <span class="nav-text"><a href="shoe.html">SHOES</a></span>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+    ----------------------------------------------
+
+    <section class="slider">
+
+        <div class="wrapper">
+
+            <i id="left" class="fa-solid fa-angle-left"></i>
+
+            <ul class="carousel">
+
+
+                <li class="card">
+                    <h1>BAGS</h1>
+                    <h1>75$</h1>
+                    <div class="img"><img src="{% static 'images/yellowbag.png' %}" alt="img" draggable="false"></div>
+                    <h2>Floral Handmade</h2>
+                    <span class="details">See Details
+
+                        <a href="details.html">
+                            <img class="arrow" src="{% static 'images/circledright.png' %}" height="25px">
+                        </a>
+
+
+                    </span>
+
+                    <a href="">
+                        <img src="{% static 'images/joyent.png' %}" height="50px">
+                    </a>
+
+                </li>
+
+                <li class="card">
+                    <h1>BAGS</h1>
+                    <h1>75$</h1>
+                    <div class="img"><img src="{% static 'images/brownbag.png' %}" alt="img" draggable="false"></div>
+                    <h2>Floral Handmade</h2>
+                    <span class="details">See Details
+
+                        <a href="details.html">
+                            <img class="arrow" src="{% static 'images/circledright.png' %}" height="25px">
+                        </a>
+
+
+                    </span>
+
+                    <a href="">
+                        <img src="{% static 'images/joyent.png' %}" height="50px">
+                    </a>
+
+                </li>
+
+                <li class="card">
+                    <h1>BAGS</h1>
+                    <h1>75$</h1>
+                    <div class="img"><img src="{% static 'images/blackbag.png' %}" alt="img" draggable="false"></div>
+                    <h2>Floral Handmade</h2>
+                    <span class="details">See Details
+
+                        <a href="details.html">
+                            <img class="arrow" src="{% static 'images/circledright.png' %}" height="25px">
+                        </a>
+
+                    </span>
+
+                    <a href="">
+                        <img src="{% static 'images/joyent.png' %}" height="50px">
+                    </a>
+
+
+                </li>
+
+
+            </ul>
+
+
+            <i id="right" class="fa-solid fa-angle-right"></i>
+
+        </div>
+
+
+
+    </section>
+
+    <div class="footer">
+
+    </div>
+    5555555555555555555555555555555555555555555555555555555555555555555
+    <!---- <section class="main">
+        {% for product in products %}
+        <div class="bag-box">
+
+            <img src="{{ product.image.url }}">
+
+            <div class="box-text">
+                <p class="card-text">{{ product.productName }}</p>
+                <p class="card-text">{{ product.description }}</p>
+
+                <p class="card-text">Price - {{ product.price }}</p>
+            </div>
+
+        </div>
+        {% endfor %}
+    </section>
+
+
+</body>
+
+</html>
+-->
+    -------------------------------------------NEW
+
+    <body>
+
+        <section class="header">
+
+            <div class="nav-logo">
+                <h1 class="logo">PinkPetal</h1>
+            </div>
+
+
+
+            <div class="nav">
+                <input type="checkbox" id="nav-check">
+
+                <div class="nav-btn">
+                    <label for="nav-check">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                </div>
+
+
+
+                <div class="nav-links">
+                    <img src="{% static 'images/user.png' %}"><a class="signup" href="login.html">SIGN IN</a>
+                    <a class="catagories" href="#">CATAGORIES</a>
+                    <a class="cart" href="cart.html">SHOPPING CART</a>
+                </div>
+
+        </section>
+
+        <div class="sidebar">
+
+            <div class="header-text">
+                <span>CATAGORIES</span>
+            </div>
+
+            <div class="menu-bar">
+                <div class="menu">
+
+                    <ul class="menu-links">
+                        {% for Category in Categories %}
+                        <li class="nav-link">
+                            <a href="{% url 'categorybag_by_category' Category.name %}">{{ Category.name }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+
+
+        <section class="main">
+
+            {% for SpecialProduct in SpecialProducts %}
+
+            <div class="bag-box">
+
+                <img src="{{ SpecialProduct.image.url }}">
+
+                <div class="box-text">
+
+                    <h1>{{ SpecialProduct.productName }}</h1>
+
+                    <h1>{{ SpecialProduct.price }}</h1>
+
+                    <p>{{ SpecialProduct.description }}</p>
+
+                </div>
+
+            </div>
+            {% endfor %}
+        </section>
+
+
+
+        <section class="slider">
+            {% block category %}
+            {% for product in products %}
+            <div class="wrapper">
+
+                <i id="left" class="fa-solid fa-angle-left"></i>
+
+                <ul class="carousel">
+
+
+                    <li class="card">
+                        <h1>{{ product.productName }}</h1>
+                        <h1>{{ product.price }}$</h1>
+                        <div class="img"><img src="{{ product.image.url }}" alt="img" draggable="false"></div>
+                        <h2>{{ product.Brand }}</h2>
+                        <span class="details">See Details
+
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img class="arrow" src="{% static 'images/circledright.png' %}" height="25px">
+                            </a>
+
+
+                        </span>
+
+                        <a href="">
+                            <img src="{% static 'images/joyent.png' %}" height="50px">
+                        </a>
+
+                    </li>
+                </ul>
+
+
+                <i id="right" class="fa-solid fa-angle-right"></i>
+
+            </div>
+
+
+            {% endfor %}
+        </section>
+
+        <div class="footer">
+
+        </div>
+
+        <script src="{% static 'JS/catagorybag.js' %}"></script>
+        {% endblock %}
+    </body>
